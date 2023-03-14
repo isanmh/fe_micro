@@ -1,2 +1,59 @@
-cara install react bootstrap :
-npm install react-bootstrap bootstrap axios
+Extensi :
+- Es7 React/Redux/GraphQL/React-Native
+- Simple React Snippets
+- Babel ES6/ES7
+- Prettier - Code formatter
+- Babel Javascript
+- Bootstrap 5 Quick Snippets
+- color highlight
+- css peek
+- html to jsx
+- IntelliSense for CSS class names in HTML
+- Javascript (ES6) code snippets
+- JSX HTML
+- vscode-styled-components
+- Eslint
+- Setting Prettier :
+    masuk ke Setting : Ctrl + ,
+    cara formatter : ceklis Format default : Prettier
+    ceklis Format on save
+
+untuk pemanggilan api bisa menggunakan axios :
+npm i axios
+
+
+untuk membuata backend simple :
+json-server : 
+https://www.npmjs.com/package/json-server
+https://github.com/typicode/json-server
+npm install -g json-server
+
+untuk menjalakan json-server :
+json-server --watch db_member.json --port 3004
+
+packages yg digunakan :
+- react-router-dom
+- axios
+- json-server
+- react-bootstrap
+- bootstrap
+- react-reveal
+- sweetalert2
+
+cara install react bootstrap atau bootstrap 5 :
+https://getbootstrap.com/docs/5.0/getting-started/introduction/
+    npm i bootstrap
+    npm install react-bootstrap bootstrap axios
+
+untuk di react js melakukan navigasi atau route bisa menggunkan react router dom :
+    npm i react-router-dom
+    yarn add react-router-dom
+
+untuk pemnggilan api menggunakan axios :
+npm i axios
+https://github.com/axios/axios
+https://axios-http.com/
+
+cara install sweet alert & react reveal:
+npm i sweetalert2 --force
+npm i react-reveal --force
