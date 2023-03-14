@@ -11,7 +11,7 @@ const Header = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="justify-content-end btn" style={{ width: "100%" }}>
+          <Nav className="justify-content-end" style={{ width: "100%" }}>
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
@@ -21,7 +21,7 @@ const Header = () => {
             <Nav.Link as={Link} to="/about">
               About Us
             </Nav.Link>
-            <Nav.Link as={Link} to="/service">
+            <Nav.Link as={Link} to="/contacts">
               Service
             </Nav.Link>
           </Nav>

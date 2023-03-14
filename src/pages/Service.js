@@ -1,10 +1,11 @@
 import React from "react";
-import Contacts from "../components/Contacts";
+import ContactsList from "../components/crud/ContactsList";
+// import Contacts from "../components/Contacts";
 
 const Service = () => {
   return (
     <>
-      <Contacts />
+      <ContactsList />
     </>
   );
 };

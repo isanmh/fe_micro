@@ -1,3 +1,10 @@
+Setting untuk docker  atau server :
+- buka src/config/Api.js
+- ganti url dengan ip server atau localhost (Domain)
+- docker pull node
+- docker run -it -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm node
+- docker run -it -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm node sh -c "yarn install && yarn start"
+
 Extensi :
 - Es7 React/Redux/GraphQL/React-Native
 - Simple React Snippets
