@@ -1,4 +1,10 @@
 Setting untuk docker  atau server :
+- npm install
+- jika ada error
+    npm install --force
+    npm install react-reveal --force
+    npm install sweetalert2 --force
+- npm start
 - buka src/config/Api.js
 - ganti url dengan ip server atau localhost (Domain)
 - docker pull node
