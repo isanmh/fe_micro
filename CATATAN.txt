@@ -1,0 +1,2 @@
+cara install react bootstrap :
+npm install react-bootstrap bootstrap axios
