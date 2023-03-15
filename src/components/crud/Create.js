@@ -68,8 +68,8 @@ const Create = () => {
       ) : (
         ""
       )}
-      <Row className="mt-3">
-        <Col className="col-md-6">
+      <div className="mt-3 d-lg-flex flex-lg-row justify-content-between d-sm-flex flex-sm-column">
+        <Col className="col-lg-6">
           <form onSubmit={saveContact}>
             <div className="form-group my-3">
               <label>Full Name</label>
@@ -120,7 +120,7 @@ const Create = () => {
           </form>
         </Col>
         {/* image preview */}
-        <Col className="col-md-6">
+        <Col className="col-lg-5">
           {preview ? (
             <Figure>
               <Figure.Image
@@ -138,7 +138,7 @@ const Create = () => {
             ""
           )}
         </Col>
-      </Row>
+      </div>
     </Container>
   );
 };
