@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Api, Url } from "../../config/Api";
+import { Api, Url } from "../../../config/Api";
 
 const ContactsList = () => {
   const [contacts, setContacts] = useState([]);

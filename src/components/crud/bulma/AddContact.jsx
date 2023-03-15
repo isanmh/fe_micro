@@ -1,37 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
-import { Api, Url } from "../../config/Api";
+import { useNavigate } from "react-router-dom";
+import { Api } from "../../../config/Api";
 
-const EditContact = () => {
+const AddContact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [image, setImage] = useState("");
   const [preview, setPreview] = useState("");
+  const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
-  const { id } = useParams();
-
-  useEffect(() => {
-    getContact();
-  }, []);
-
-  // edit contact
-  const getContact = async () => {
-    const res = await axios.get(`${Api}/${id}`);
-    setName(res.data.data.name);
-    setEmail(res.data.data.email);
-    setPhone(res.data.data.phone);
-    setPreview(`${Url}/${res.data.data.image}`);
-  };
 
   const loadImage = (e) => {
+    console.log(e.target.files[0]);
     const img = e.target.files[0];
     setImage(img);
     setPreview(URL.createObjectURL(img));
   };
 
-  const updateProduct = async (e) => {
+  const saveContact = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("image", image);
@@ -39,21 +27,35 @@ const EditContact = () => {
     formData.append("email", email);
     formData.append("phone", phone);
     try {
-      await axios.put(`${Api}/${id}`, formData, {
+      await axios.post(Api, formData, {
         headers: {
           "Content-type": "multipart/form-data",
         },
       });
       navigate("/contacts");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      if (error.response.status === 422) {
+        console.log(error.response.data.errors);
+        setErrors(error.response.data.errors);
+      }
     }
   };
 
   return (
     <div className="columns is-centered mt-5">
       <div className="column is-half">
-        <form onSubmit={updateProduct}>
+        {errors.length > 0 ? (
+          <div className="notification is-danger">
+            <button className="delete"></button>
+            {errors.map((error) => (
+              <li key={error.msg}>{error.msg}</li>
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
+        <form onSubmit={saveContact}>
           <div className="field">
             <label className="label">Full Name</label>
             <div className="control">
@@ -62,7 +64,7 @@ const EditContact = () => {
                 className="input"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Full Name"
+                placeholder="Full Name ..."
               />
             </div>
           </div>
@@ -122,7 +124,7 @@ const EditContact = () => {
           <div className="field">
             <div className="control">
               <button type="submit" className="button is-success">
-                Update
+                Save
               </button>
             </div>
           </div>
@@ -132,4 +134,4 @@ const EditContact = () => {
   );
 };
 
-export default EditContact;
+export default AddContact;

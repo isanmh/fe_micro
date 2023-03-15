@@ -5,7 +5,7 @@ import App from "./routes/App";
 // bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
 // bulma
-import "bulma/css/bulma.min.css";
+// import "bulma/css/bulma.min.css";
 import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

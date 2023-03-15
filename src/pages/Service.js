@@ -1,11 +1,13 @@
 import React from "react";
-import ContactsList from "../components/crud/ContactsList";
+import IndexList from "../components/crud/IndexList";
+import ContactsList from "../components/crud/bulma/ContactsList";
 // import Contacts from "../components/Contacts";
 
 const Service = () => {
   return (
     <>
-      <ContactsList />
+      {/* <ContactsList /> */}
+      <IndexList />
     </>
   );
 };
