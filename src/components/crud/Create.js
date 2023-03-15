@@ -56,10 +56,10 @@ const Create = () => {
 
   return (
     <Container>
-      {/* errors */}
       <h3 className="text-center my-3">Form Add Contacts Members</h3>
       <hr />
-      {errors.length > 0 ? (
+      {/* alert error */}
+      {/* {errors.length > 0 ? (
         <div className="alert alert-danger">
           {errors.map((error) => (
             <li key={error.msg}>{error.msg}</li>
@@ -67,7 +67,7 @@ const Create = () => {
         </div>
       ) : (
         ""
-      )}
+      )} */}
       <div className="mt-3 d-lg-flex flex-lg-row justify-content-between d-sm-flex flex-sm-column">
         <Col className="col-lg-6">
           <form onSubmit={saveContact}>
@@ -79,6 +79,17 @@ const Create = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
+              {errors.length > 0 ? (
+                <div className="text-danger">
+                  {errors.map((error) => (
+                    <small key={error.msg}>
+                      {error.param === "name" ? error.msg : ""}
+                    </small>
+                  ))}
+                </div>
+              ) : (
+                ""
+              )}
             </div>
             <div className="form-group my-3">
               <label>Email</label>
@@ -88,6 +99,17 @@ const Create = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              {errors.length > 0 ? (
+                <div className="text-danger">
+                  {errors.map((error) => (
+                    <small key={error.msg}>
+                      {error.param === "email" ? error.msg : ""}
+                    </small>
+                  ))}
+                </div>
+              ) : (
+                ""
+              )}
             </div>
             <div className="form-group my-3">
               <label>Phone</label>
@@ -97,6 +119,17 @@ const Create = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
+              {errors.length > 0 ? (
+                <div className="text-danger">
+                  {errors.map((error) => (
+                    <small key={error.msg}>
+                      {error.param === "phone" ? error.msg : ""}
+                    </small>
+                  ))}
+                </div>
+              ) : (
+                ""
+              )}
             </div>
             <div className="form-group my-3">
               <label>Image</label>
