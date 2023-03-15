@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Api, Url } from "../../config/Api";
 import { Button, Container, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const IndexList = () => {
   const [contacts, setContacts] = useState([]);
@@ -17,10 +18,33 @@ const IndexList = () => {
     setContacts(res.data.data);
   };
 
+  // const deleteContact = async (contactId) => {
+  //   try {
+  //     await axios.delete(`${Api}/${contactId}`);
+  //     getContacts();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // delete contact with sweetalert2
   const deleteContact = async (contactId) => {
     try {
-      await axios.delete(`${Api}/${contactId}`);
-      getContacts();
+      await Swal.fire({
+        title: "Apakah anda yakin?",
+        text: "Data yang dihapus tidak bisa dikembalikan!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          await axios.delete(`${Api}/${contactId}`);
+          getContacts();
+          Swal.fire("Deleted!", "File anda berhasil dihapus.", "success");
+        }
+      });
     } catch (error) {
       console.log(error);
     }

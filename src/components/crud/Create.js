@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Api } from "../../config/Api";
 import { Col, Container, Figure, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const Create = () => {
   const [name, setName] = useState("");
@@ -34,6 +35,14 @@ const Create = () => {
         headers: {
           "Content-type": "multipart/form-data",
         },
+      });
+      // with sweetalert2
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Data berhasil ditambahkan",
+        showConfirmButton: false,
+        timer: 1500,
       });
       navigate("/contacts-list");
     } catch (error) {
@@ -100,6 +109,13 @@ const Create = () => {
             {/* button submit */}
             <button type="submit" className="btn btn-primary">
               Add Contact
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline-secondary mx-2"
+              onClick={() => navigate("/contacts-list")}
+            >
+              Back
             </button>
           </form>
         </Col>

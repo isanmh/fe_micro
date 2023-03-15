@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { Api, Url } from "../../config/Api";
 import { Col, Container, Figure, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const Edit = () => {
   const [name, setName] = useState("");
@@ -49,6 +50,15 @@ const Edit = () => {
           "Content-type": "multipart/form-data",
         },
       });
+      // with sweetalert2
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Data berhasil ditambahkan",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
       navigate("/contacts-list");
     } catch (error) {
       console.log(error);
@@ -113,7 +123,15 @@ const Edit = () => {
             </div>
             {/* button submit */}
             <button type="submit" className="btn btn-primary">
-              Add Contact
+              Update Contact
+            </button>
+            {/* back */}
+            <button
+              type="button"
+              className="btn btn-outline-secondary mx-2"
+              onClick={() => navigate("/contacts-list")}
+            >
+              Back
             </button>
           </form>
         </Col>
